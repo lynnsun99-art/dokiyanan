@@ -966,7 +966,7 @@ const css=`
 .wx-screen{background:#ededed!important;color:#161616}.wx-screen .nav{display:none!important}.wx-screen .content{padding:0!important;overflow:auto!important;background:#ededed!important}.wx-head{height:86px;padding:31px 17px 10px;display:flex;align-items:center;justify-content:space-between;font-size:22px;font-weight:700}.wx-head button,.wx-back{border:0;background:none;font-size:26px;color:#171717}.wx-search{margin:0 9px 9px;background:#fff;border-radius:9px;padding:10px;text-align:center;color:#aaa;font-size:17px}.wx-list{background:white}.wx-item{display:flex;align-items:center;gap:13px;padding:12px 16px;min-height:76px;border-bottom:1px solid #eee;cursor:pointer}.wx-avatar{width:51px;height:51px;border-radius:7px;object-fit:cover;flex-shrink:0}.wx-letters{width:51px;height:51px;border-radius:7px;display:grid;place-items:center;background:#24be65;color:white;font-size:27px;flex-shrink:0}.wx-main{flex:1;min-width:0}.wx-name{font-size:17px;font-weight:550;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.wx-preview{color:#a2a2a2;font-size:13px;margin-top:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.wx-date{color:#b6b6b6;font-size:12px;align-self:flex-start}.wx-bottom{position:absolute;bottom:0;left:0;right:0;height:66px;background:#fafafa;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(4,1fr);z-index:6}.wx-tab{border:0;background:none;font-size:12px;color:#333;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}.wx-tab b{font-size:25px;font-weight:400}.wx-tab.on{color:#09b65a}.wx-page{padding-bottom:76px;min-height:100%}.wx-group{margin:13px 0;background:white}.wx-action{display:flex;align-items:center;gap:16px;padding:14px 20px;min-height:55px;background:white;border-bottom:1px solid #f1f1f1;font-size:17px;cursor:pointer}.wx-action i{width:31px;text-align:center;font-style:normal;font-size:24px}.wx-arrow{margin-left:auto;color:#bbb}.wx-me{display:flex;align-items:center;gap:18px;padding:35px 20px 30px;background:white;cursor:pointer}.wx-me img{width:72px;height:72px;object-fit:cover;border-radius:9px}.wx-me strong{font-size:22px}.wx-me small{display:block;color:#888;margin-top:10px}.wx-subtitle{font-size:14px;color:#999;padding:12px 16px 5px}.wx-chatwrap{height:100%;display:flex;flex-direction:column;background:#ededed}.wx-chathead{display:flex;align-items:center;gap:8px;padding:13px 12px;background:#ededed;border-bottom:1px solid #ddd;font-size:18px;font-weight:650}.wx-chathead button{background:none;border:0;font-size:25px}.wx-chatlog{flex:1;min-height:0;overflow:auto;padding:15px 12px}.wx-msg{display:flex;gap:8px;align-items:flex-start;margin-bottom:16px}.wx-msg.mine{flex-direction:row-reverse}.wx-msg img{width:37px;height:37px;border-radius:5px;object-fit:cover}.wx-bubble{padding:10px 12px;border-radius:6px;max-width:75%;background:white;line-height:1.5;word-break:break-word;font-size:15px}.wx-msg.mine .wx-bubble{background:#95ec69}.wx-send{display:flex;gap:8px;padding:9px 10px 20px;background:#f7f7f7;border-top:1px solid #ddd}.wx-send input{flex:1;min-width:0;padding:10px;border:0;border-radius:6px;font-size:16px}.wx-send button{background:#08b65d;color:white;border:0;border-radius:6px;padding:0 15px}.wx-moment{background:white;padding:15px;display:flex;gap:11px;border-bottom:1px solid #eee}.wx-moment-body{flex:1;min-width:0}.wx-moment-body strong{color:#596b8d}.wx-moment-body p{margin:10px 0;white-space:pre-wrap;line-height:1.5}.wx-moment-body button{background:#f3f3f3;border:0;padding:7px;margin-right:8px}.wx-profile-input{width:100%;padding:13px;border:1px solid #ddd;border-radius:8px;font-size:16px}.wx-save{background:#08b65d;color:white;border:0;border-radius:7px;padding:12px 20px;margin-top:14px}.wb-profile{background:#fff}.wb-cover{height:120px;background:linear-gradient(120deg,#b6d9e1,#f4d6b1)}.wb-person{display:flex;align-items:center;gap:13px;padding:0 17px;margin-top:-28px}.wb-person img{width:75px;height:75px;border:4px solid #fff;border-radius:50%;object-fit:cover}.wb-person b{font-size:22px}.wb-stats{display:flex;justify-content:space-around;padding:16px 4px;font-size:14px}.wb-stats b{font-size:17px}.wb-tabs{display:flex;justify-content:space-around;padding:14px;background:#fff;border-bottom:2px solid #ff8a32;font-weight:600}.wb-post{background:#fff;margin:10px 0;padding:16px}.wb-post-head{display:flex;align-items:center;gap:10px}.wb-post-head img{width:42px;height:42px;border-radius:50%;object-fit:cover}.wb-post p{line-height:1.65;white-space:pre-wrap}.wb-counts{display:flex;justify-content:space-around;border-top:1px solid #eee;padding-top:12px;color:#777;font-size:13px}.wb-counts button{background:none;border:0;color:inherit;font-size:13px}.wx-screen .sms-thread{height:100%}
 `;
 const style=document.createElement('style');style.textContent=css;document.head.appendChild(style);
-state.wxProfile??={name:state.myPersona?.name||state.username||'我',id:'rin975',avatar:''};
+state.wxProfile??={name:state.myPersona?.name||state.username||'我',id:'',avatar:''};
 state.wxContacts??=[];
 function me(){return state.wxProfile}
 function myImg(){return me().avatar||''}
@@ -984,7 +984,7 @@ window.wxOpen=function(tab='chats'){
  const groups=[[['🌈','朋友圈','wxMoments()']],[['🟠','视频号','wxShowInfo(\'视频号\')'],['🔴','直播','wxShowInfo(\'直播\')']],[['▣','扫一扫','wxShowInfo(\'扫一扫\')'],['♫','听一听','wxShowInfo(\'听一听\')']],[['☀','看一看','wxShowInfo(\'看一看\')'],['✳','搜一搜','wxSearch()']],[['♧','附近的人','wxShowInfo(\'附近的人\')']],[['◇','游戏','wxShowInfo(\'游戏\')']],[['◉','小程序','wxShowInfo(\'小程序\')']]];
  body=groups.map(g=>`<div class="wx-group">${g.map(([ic,t,act])=>`<div class="wx-action" onclick="${act}"><i>${ic}</i>${t}<span class="wx-arrow">›</span></div>`).join('')}</div>`).join('');
  }else{
- body=`<div class="wx-me" onclick="wxEditProfile()">${avatar(me().name,myImg())}<div><strong>${esc(me().name)}</strong><small>微信号：${esc(me().id)}</small></div><span class="wx-arrow">›</span></div>${[[['✓','服务'],['◇','收藏'],['▧','朋友圈'],['▤','作品'],['▣','卡包'],['☺','表情']],[['⚙','设置']]].map(g=>`<div class="wx-group">${g.map(([ic,t])=>`<div class="wx-action" onclick="${t==='设置'||t==='作品'?'wxEditProfile()':t==='朋友圈'?'wxMoments()':`wxShowInfo('${t}')`}"><i>${ic}</i>${t}<span class="wx-arrow">›</span></div>`).join('')}</div>`).join('')}`;
+ body=`<div class="wx-me" onclick="wxEditProfile()">${avatar(me().name,myImg())}<div><strong>${esc(me().name)}</strong><small>微信号：${esc(me().id||'未设置')}</small></div><span class="wx-arrow">›</span></div>${[[['✓','服务'],['◇','收藏'],['▧','朋友圈'],['▤','作品'],['▣','卡包'],['☺','表情']],[['⚙','设置']]].map(g=>`<div class="wx-group">${g.map(([ic,t])=>`<div class="wx-action" onclick="${t==='作品'?'wxWorks()':t==='设置'?'wxEditProfile()':t==='朋友圈'?'wxMoments()':`wxShowInfo('${t}')`}"><i>${ic}</i>${t}<span class="wx-arrow">›</span></div>`).join('')}</div>`).join('')}`;
  }
  mountWx(layout(tab==='chats'?'微信':tab==='contacts'?'通讯录':tab==='discover'?'发现':'',body,tab));
 };
@@ -1065,4 +1065,159 @@ function autoCheck(){if(!cfg.nextMessage){cfg.nextMessage=Date.now()+cfg.interva
 setInterval(autoCheck,15000);autoCheck();
 })();
 
+</script><script>
+(function(){
+'use strict';
+const style=document.createElement('style');style.textContent=`
+.wx-screen .wx-head{height:54px!important;padding:5px 16px!important;min-height:54px!important;box-sizing:border-box!important}
+.wx-screen .content{height:100%!important;overflow:auto!important}
+.wx-screen .wx-page{padding-bottom:75px!important}
+.wx-screen .wx-chathead{min-height:52px!important;box-sizing:border-box}
+.wx-screen .wx-msg{display:flex!important;width:100%!important;background:transparent!important;padding:0!important;box-sizing:border-box!important}
+.wx-screen .wx-msg.mine{justify-content:flex-start!important;flex-direction:row-reverse!important}
+.wx-screen .wx-msg .wx-bubble{display:inline-block!important;flex:0 1 auto!important;width:max-content!important;max-width:min(76%,430px)!important;min-width:0!important;margin:0!important;padding:9px 12px!important;border-radius:7px!important;background:#fff!important;color:#171717!important;box-sizing:border-box!important;white-space:pre-wrap!important;overflow-wrap:anywhere!important}
+.wx-screen .wx-msg.mine .wx-bubble{background:#95ec69!important}
+.wx-screen .wx-chatlog{background:var(--wx-chat-bg,#ededed)!important;background-image:var(--wx-chat-img,none)!important;background-size:cover!important;background-position:center!important}
+.wx-screen .wx-send{padding-bottom:max(12px,env(safe-area-inset-bottom))!important;align-items:center}
+.wx-screen .wx-send .wx-photo-btn{padding:7px 10px;background:#e4e4e4;color:#333;font-size:21px}
+.wx-screen .wx-chathead .wx-home{margin-left:auto;font-size:13px;border-radius:14px;background:#fff;padding:5px 9px}
+.wx-screen .wx-msg-photo{max-width:190px;max-height:220px;border-radius:8px;display:block;object-fit:contain}
+.wx-screen .wx-chatname{font-size:11px;color:#777;margin:0 0 3px}
+.wb-v34{height:100%;overflow:auto;background:#f4f4f4;padding-bottom:80px;box-sizing:border-box}
+.wb-v34-head{height:55px;display:flex;align-items:center;justify-content:space-around;background:#fff;font-size:17px;font-weight:650;position:sticky;top:0;z-index:4}
+.wb-v34-head button,.wb-v34-tabs button{border:0;background:none;color:#222;font-size:15px}
+.wb-v34-tabs{position:sticky;bottom:0;background:#fafafa;display:grid;grid-template-columns:repeat(5,1fr);height:65px;z-index:5;border-top:1px solid #ddd}
+.wb-v34-tabs button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px}
+.wb-v34-tabs button b{font-size:23px;font-weight:400}
+.wb-v34-card{background:white;margin:10px 0;padding:15px}
+.wb-v34-input{display:block;width:100%;padding:11px;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;margin:8px 0;font-size:16px}
+.wb-v34-primary{border:0;border-radius:9px;background:#ff8b23;color:white;padding:11px 18px;font-size:15px}
+.wb-v34-cover{height:145px;background:linear-gradient(120deg,#8bb6cb,#ebd9c2);background-size:cover;background-position:center}
+.wb-v34-postimage{max-width:100%;max-height:280px;border-radius:8px;object-fit:contain}
+`;document.head.appendChild(style);
+state.wxChatBackground??='';state.wxMedia??=[];state.wbSelf??={name:state.wxProfile?.name||'我',avatar:'',cover:''};state.wbYan??={avatar:'',cover:''};state.wbMinePosts??=[];state.wbView??='home';
+function readImg(file,max=640){return new Promise((resolve,reject)=>{if(!file||!file.type.startsWith('image/'))return reject(Error('请选择图片'));if(file.size>12e6)return reject(Error('图片不能超过12MB'));const reader=new FileReader();reader.onerror=()=>reject(Error('读取图片失败'));reader.onload=()=>{const im=new Image();im.onload=()=>{const r=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.max(1,Math.round(im.width*r));c.height=Math.max(1,Math.round(im.height*r));c.getContext('2d').drawImage(im,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.7))};im.onerror=()=>reject(Error('图片格式不支持'));im.src=reader.result};reader.readAsDataURL(file)})}
+function persist(){try{save();return true}catch(e){showToast('本机储存空间不足，请先备份数据或使用更小的图片');return false}}
+const oldGoHome=goHome;window.wxHome=function(){oldGoHome()};
+window.wxChat=function(){
+ const arr=state.yanSms||[], media=state.wxMedia||[];const out=arr.map(m=>{const mine=m.from==='me',photo=media.find(x=>x.time===m.time&&x.from===m.from);const av=mine?(state.wxProfile?.avatar||''):yanAvatar;return `<div class="wx-msg ${mine?'mine':''}">${av?`<img src="${av}" alt="头像">`:`<span class="wx-letters" style="width:37px;height:37px">我</span>`}<div><div class="wx-chatname" style="text-align:${mine?'right':'left'}">${esc(mine?(state.wxProfile?.name||'我'):'闫桉')}</div><div class="wx-bubble">${photo?`<img class="wx-msg-photo" src="${photo.data}" alt="聊天图片">`:esc(m.text)}</div></div></div>`}).join('');
+ const html=`<div class="wx-chatwrap"><div class="wx-chathead"><button onclick="wxOpen('chats')">‹</button><span>闫桉</span><button class="wx-home" onclick="wxHome()">⌂ 桌面</button><button onclick="wxChatOptions()">⋯</button></div><div class="wx-chatlog" id="yanSmsLog">${out}</div><form class="wx-send" onsubmit="return wxSend(event)"><button type="button" class="wx-photo-btn" onclick="document.getElementById('wxSendImage').click()">＋</button><input type="file" id="wxSendImage" accept="image/*" style="display:none" onchange="wxImageSend(this)"><input id="yanSmsInput" placeholder="发送消息" maxlength="800" autocomplete="off"><button type="submit">发送</button></form></div>`;
+ mount('messages',appShell('messages','微信',html));const s=document.getElementById('screen-messages');s.classList.add('wx-screen');s.querySelector('.content').style.height='100%';const log=document.getElementById('yanSmsLog');log.style.setProperty('--wx-chat-img',state.wxChatBackground?`url("${state.wxChatBackground}")`:'none');log.scrollTop=log.scrollHeight;try{v17MarkRead('sms')}catch(e){}
+};
+window.wxChatOptions=function(){const a=prompt('聊天设置：输入 1 更换聊天背景，2 恢复默认背景，3 返回桌面','1');if(a==='1')document.getElementById('wxSendImage').setAttribute('data-background','1'),document.getElementById('wxSendImage').click();else if(a==='2'){state.wxChatBackground='';persist();wxChat()}else if(a==='3')wxHome()};
+window.wxImageSend=async function(input){const file=input.files?.[0];if(!file)return;try{const data=await readImg(file,600);if(input.dataset.background==='1'){state.wxChatBackground=data;persist();wxChat();showToast('聊天背景已更新');return}const caption=prompt('可选：告诉闫桉这张图片是什么（当前 AI 不具备直接识图能力）','')||'';const now=Date.now();state.yanSms??=[];state.yanSms.push({from:'me',text:caption?'[图片] '+caption:'[图片]',time:now});state.wxMedia.push({from:'me',time:now,data});state.wxMedia=state.wxMedia.slice(-25);state.yanLastProactive=now;persist();wxChat();if(state.aiEnabled&&state.aiEndpoint){try{const reply=await aiRequest('sms');yanReceive('sms',reply,false)}catch(e){yanReceive('sms','图片收到了～不过我这边暂时看不到具体内容，你给我讲讲拍了什么？',false)}}else yanReceive('sms','收到图片啦，给我讲讲这张照片的故事？',false);wxChat()}catch(e){showToast(e.message)}finally{input.value='';delete input.dataset.background}};
+window.wxSend=function(e){e?.preventDefault();const v=document.getElementById('yanSmsInput')?.value?.trim();if(!v)return false;aiSend('sms',null).then(()=>{if(document.getElementById('yanSmsLog'))wxChat()}).catch(e=>showToast(e.message));return false};
+smsConversation=function(){if(document.getElementById('screen-messages')?.classList.contains('wx-screen'))wxChat();else wxChat()};
+const previousReceive=yanReceive;yanReceive=function(ch,t,n){const r=previousReceive(ch,t,n);if(ch==='sms'&&document.getElementById('yanSmsLog'))wxChat();return r};
+function av(name,url){return url?`<img src="${url}" style="width:44px;height:44px;border-radius:50%;object-fit:cover">`:`<span style="display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#ff9b29;color:white">${esc((name||'我')[0])}</span>`}
+function wbBase(body,tab='home'){mount('weibo',appShell('weibo','微博',`<div class="wb-v34"><div class="wb-v34-head"><span onclick="wxHome()">⌂</span><span>微博 · ${tab==='home'?'关注':tab==='discover'?'发现':tab==='messages'?'消息':tab==='me'?'我':'个人主页'}</span><button onclick="wbCompose()">⊕</button></div>${body}</div><div class="wb-v34-tabs">${[['home','⌂','首页'],['video','▷','视频'],['discover','⌕','发现'],['messages','✉','消息'],['me','♙','我']].map(([k,ic,t])=>`<button onclick="wbPage('${k}')" style="color:${k===tab?'#ff8b23':'#333'}"><b>${ic}</b>${t}</button>`).join('')}</div>`));const s=document.getElementById('screen-weibo');s.querySelector('.nav').style.display='none';s.querySelector('.content').style.cssText='padding:0;height:calc(100% - 65px);overflow:hidden';}
+function nums(p){let x=0;for(const c of String(p.id||p.time))x=(x*33+c.charCodeAt(0))>>>0;return [1200+x%7600,1800+(x>>>3)%9600,3500+(x>>>7)%21000]}
+function wbPost(p,mine=false){const name=mine?state.wbSelf.name:'闫桉',image=mine?state.wbSelf.avatar:(state.wbYan.avatar||yanAvatar),[re,co,li]=mine?[0,0,0]:nums(p),key=String(p.id);const comments=state.v17Weibo?.comments?.[key]||[];return `<article class="wb-v34-card"><div style="display:flex;align-items:center;gap:10px">${av(name,image)}<div><b>${esc(name)} ${mine?'':'ⓥ'}</b><div style="font-size:12px;color:#999">${new Date(p.time||Date.now()).toLocaleString('zh-CN')} · 模拟微博</div></div></div><p style="white-space:pre-wrap;line-height:1.65">${esc(p.text||'')}</p>${p.image?`<img class="wb-v34-postimage" src="${p.image}" alt="微博配图">`:''}<div class="wb-counts"><button onclick="wbShare('${key}')">↗ 转发 ${re}</button><button onclick="wbV34Comment('${key}')">☷ 评论 ${co+comments.length}</button><button onclick="wbV34Like('${key}')">♡ 赞 ${li+(state.v17Weibo?.likes?.[key]?1:0)}</button></div>${comments.length?`<div style="font-size:13px;color:#777;margin-top:10px">${comments.map(x=>`<p>${esc(x)}</p>`).join('')}</div>`:''}</article>`}
+window.wbPage=function(tab='home'){state.wbView=tab;v17Daily();const my=state.wbMinePosts||[],yan=state.v17Weibo?.posts||[];if(tab==='home'){wbBase(`<div class="wb-v34-card" style="display:flex;gap:14px;justify-content:space-around"><button onclick="wbPage('profile')">闫桉主页</button><button onclick="wbCompose()">＋ 发微博</button><button onclick="wbPage('me')">我的主页</button></div>${[...my.map(x=>({...x,mine:true})),...yan].sort((a,b)=>b.time-a.time).map(p=>wbPost(p,!!p.mine)).join('')}`,'home')}
+else if(tab==='profile'){wbBase(`<div class="wb-v34-cover" style="background-image:${state.wbYan.cover?`url('${state.wbYan.cover}')`:'none'}"></div><div class="wb-v34-card" style="margin-top:0">${av('闫桉',state.wbYan.avatar||yanAvatar)} <b style="font-size:21px">闫桉 ⓥ</b><p>345.3万 粉丝　60 关注　5764.1万 转评赞</p><small>模拟资料 · 互动数字为虚构</small><p><button onclick="wbEdit('yan')">更换闫桉头像 / 封面</button></p></div>${yan.map(p=>wbPost(p)).join('')}`,'profile')}
+else if(tab==='me'){wbBase(`<div class="wb-v34-cover" style="background-image:${state.wbSelf.cover?`url('${state.wbSelf.cover}')`:'none'}"></div><div class="wb-v34-card" style="margin-top:0">${av(state.wbSelf.name,state.wbSelf.avatar)} <b style="font-size:20px">${esc(state.wbSelf.name)}</b><p><button onclick="wbEdit('self')">编辑昵称、头像和封面</button>　<button onclick="wbCompose()">发微博</button></p><p>${my.length} 微博 · 0 关注 · 0 粉丝（模拟）</p></div>${my.map(p=>wbPost(p,true)).join('')}`,'me')}
+else if(tab==='discover'){wbBase(`<div class="wb-v34-card"><input class="wb-v34-input" id="wbQuery" placeholder="搜索微博"><button class="wb-v34-primary" onclick="wbSearch()">搜索</button><h3>微博热搜 · 模拟</h3><p>影视作品　｜　新剧动态　｜　今日话题</p></div>${yan.slice(0,6).map(p=>wbPost(p)).join('')}`,'discover')}
+else if(tab==='messages'){wbBase(`<div class="wb-v34-card"><h3>消息</h3>${[['@我的','wbMentions()'],['评论','wbComments()'],['赞','wbLikes()'],['闫桉私信',"v17Chat('dm')"]].map(([n,fn])=>`<div class="wx-action" onclick="${fn}">${n}<span class="wx-arrow">›</span></div>`).join('')}</div>`,'messages')}
+else wbBase(`<div class="wb-v34-card"><h3>视频</h3><p>这里展示模拟内容，暂未连接真实视频服务。</p></div>`,'video')};
+window.wbSearch=function(){const q=document.getElementById('wbQuery')?.value.trim();if(!q)return;const found=[...state.wbMinePosts,...state.v17Weibo.posts].filter(p=>p.text.includes(q));wbBase(found.length?found.map(p=>wbPost(p,state.wbMinePosts.includes(p))).join(''):'<div class="wb-v34-card">没有找到相关微博</div>','discover')};
+window.wbMentions=function(){wbBase(`<div class="wb-v34-card"><h3>@我的</h3>${state.wbMinePosts.filter(p=>/@闫桉/.test(p.text)).map(p=>`<p>${esc(p.text)}</p>`).join('')||'暂无提及'}</div>`,'messages')};window.wbComments=function(){wbBase('<div class="wb-v34-card"><h3>评论</h3><p>评论会显示在对应微博下方。</p></div>','messages')};window.wbLikes=function(){wbBase('<div class="wb-v34-card"><h3>赞</h3><p>点赞会记录在对应微博。</p></div>','messages')};
+window.wbCompose=function(){wbBase(`<div class="wb-v34-card"><h3>发微博</h3><textarea class="wb-v34-input" rows="6" maxlength="2000" id="wbDraft" placeholder="分享新鲜事，支持 @闫桉"></textarea><label>添加图片 <input type="file" id="wbDraftImg" accept="image/*"></label><p><button class="wb-v34-primary" onclick="wbPublish()">发布微博</button></p></div>`,'me')};
+window.wbPublish=async function(){const text=document.getElementById('wbDraft')?.value.trim(),f=document.getElementById('wbDraftImg')?.files[0];if(!text&&!f)return showToast('请输入内容或选择图片');try{const img=f?await readImg(f,680):'';const p={id:'self'+Date.now(),time:Date.now(),text:text||'[图片]',image:img};state.wbMinePosts.unshift(p);state.wbMinePosts=state.wbMinePosts.slice(0,60);persist();wbPage('me');if(/@闫桉|＠闫桉/.test(text))reactToPost('weibo',p)}catch(e){showToast(e.message)}};
+window.wbEdit=function(who){const target=who==='yan'?state.wbYan:state.wbSelf;wbBase(`<div class="wb-v34-card"><h3>${who==='yan'?'闫桉':'我的'}微博资料</h3>${who==='self'?`<label>微博昵称</label><input class="wb-v34-input" id="wbNewName" maxlength="35" value="${esc(target.name)}">`:''}<label>头像</label><input class="wb-v34-input" type="file" accept="image/*" id="wbNewAvatar"><label>封面</label><input class="wb-v34-input" type="file" accept="image/*" id="wbNewCover"><button class="wb-v34-primary" onclick="wbSaveEdit('${who}')">保存</button></div>`,'me')};
+window.wbSaveEdit=async function(who){const target=who==='yan'?state.wbYan:state.wbSelf;try{const name=document.getElementById('wbNewName')?.value.trim();if(who==='self'&&name)target.name=name;const a=document.getElementById('wbNewAvatar')?.files[0],c=document.getElementById('wbNewCover')?.files[0];if(a)target.avatar=await readImg(a,250);if(c)target.cover=await readImg(c,850);persist();wbPage(who==='yan'?'profile':'me')}catch(e){showToast(e.message)}};
+window.wbV34Like=function(id){state.v17Weibo.likes[id]=!state.v17Weibo.likes[id];persist();wbPage(state.wbView||'home')};window.wbV34Comment=function(id){const t=prompt('发表评论');if(!t?.trim())return;state.v17Weibo.comments[id]??=[];state.v17Weibo.comments[id].push((state.wbSelf.name||'我')+'：'+t.slice(0,200));persist();wbPage(state.wbView||'home')};
+window.wbOpen=function(){wbPage('profile')};v17OpenWeibo=function(){wbPage('home')};
+async function reactToPost(kind,p){if(!p||!p.text)return;const text=p.text;let reply='';if(state.aiEnabled&&state.aiEndpoint){try{const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),18000);try{const response=await fetch(state.aiEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({profile:v18Profile('sms'),messages:[{role:'system',content:'你在虚构社交互动中扮演闫桉。仅根据帖子文字自然、具体地回复一两句话，不要千篇一律，不要假装看到了图片。保持既定人物性格和关系阶段。'},{role:'user',content:`用户在${kind==='weibo'?'微博':'朋友圈'}提到了你：${text.slice(0,900)}。请针对这条内容评论。`}],channel:'social'})});const json=await response.json();if(response.ok)reply=String(json.reply||json.response||'').trim().slice(0,200)}finally{clearTimeout(timer)}}catch(e){}}
+ if(!reply){const t=text.replace(/@闫桉|＠闫桉/g,'').trim();reply=/累|加班|工作/.test(t)?'最近辛苦了，记得早点休息。':/吃|饭|面|辣椒炒肉/.test(t)?'看得我都饿了哈哈，你吃的哪家？':/电影|电视剧|剧/.test(t)?'你最近在追什么？有好看的推荐给我吗':/旅行|风景|海|天空/.test(t)?'听起来不错！这趟玩得开心吗？':`看到你说的「${t.slice(0,20)}」了，后来怎么样？`}
+ if(kind==='weibo'){state.v17Weibo.comments[p.id]??=[];state.v17Weibo.comments[p.id].push('闫桉：'+reply);persist();if(state.wbView==='me')wbPage('me');else showToast('闫桉回复了你的微博')}else{state.v17Weibo.comments['mom'+p.id]??=[];state.v17Weibo.comments['mom'+p.id].push('闫桉：'+reply);persist();if(document.getElementById('screen-messages'))wxMoments()}
+}
+const prevPublish=window.wxPublish;window.wxPublish=function(){const t=prompt('发表朋友圈（可以 @闫桉）');if(!t?.trim())return;const p={id:'u'+Date.now(),text:t.trim().slice(0,1000),time:Date.now(),authorType:'me',author:state.wxProfile?.name||'我'};state.v17Moments??=[];state.v17Moments.unshift(p);persist();wxMoments();if(/@闫桉|＠闫桉/.test(t))reactToPost('moments',p)};
+const prevMoments=window.wxMoments;window.wxMoments=function(){prevMoments();const s=document.getElementById('screen-messages');if(s){const head=s.querySelector('.wx-head');if(head&&!head.querySelector('.wx-home'))head.insertAdjacentHTML('beforeend','<button class="wx-home" onclick="wxHome()">⌂ 桌面</button>')}};
+window.wxIntervalSettings=function(){const n=prompt('闫桉主动发微信的间隔（分钟，最短 1 分钟，最长 1440 分钟）。仅网页打开时检查，系统后台不保证定时运行。',String(state.yanProactiveMinutes||35));if(n===null)return;const x=Number(n);if(!Number.isFinite(x)||x<1||x>1440)return showToast('请输入 1～1440 的数字');state.yanProactiveMinutes=x;state.yanProactiveEnabled=true;state.yanLastProactive=Date.now();persist();showToast(`主动消息间隔已设为 ${x} 分钟`)};
+yanMaybeProactive=function(){if(!state.yanProactiveEnabled||document.hidden)return;const now=Date.now(),minutes=Math.max(1,Number(state.yanProactiveMinutes)||35);if(now-state.yanLastProactive<minutes*60000)return;state.yanLastProactive=now;yanReceive('sms',slowProactiveText());persist()};
+const previousWxOpen=window.wxOpen;window.wxOpen=function(tab='chats'){previousWxOpen(tab);const s=document.getElementById('screen-messages');if(s){const head=s.querySelector('.wx-head');if(head&&!head.querySelector('.wx-home'))head.insertAdjacentHTML('beforeend','<button class="wx-home" style="font-size:13px" onclick="wxHome()">⌂ 桌面</button>');if(tab==='me'){const page=s.querySelector('.wx-page');if(page)page.insertAdjacentHTML('beforeend',`<div class="wx-group"><div class="wx-action" onclick="wxIntervalSettings()">⏱ 闫桉主动消息间隔 <span class="wx-arrow">${state.yanProactiveMinutes||35} 分钟 ›</span></div><div class="wx-action" onclick="wxChatOptionsFromMe()">▧ 更换聊天背景 <span class="wx-arrow">›</span></div></div>`)}}};
+window.wxChatOptionsFromMe=function(){wxChat();wxChatOptions()};
+})();
+
+</script><script>
+/* v35: fictional Yan An Weibo posts every four hours, locally simulated. */
+(function(){
+'use strict';
+const PERIOD=4*60*60*1000;
+const themes=[
+ ['片场','今天收工比预想早一点。路上风挺舒服的，回去准备把落下的剧本再看几页。','刚刚在片场学到一个新东西，拍戏真的每天都有新鲜事。','这场戏来回琢磨了好几遍，终于找到感觉了。'],
+ ['吃饭','今天突然特别想吃辣椒炒肉，配米饭真的很难拒绝。','工作间隙吃了碗面，热乎乎的，整个人都缓过来了。','今天的快乐来自一口冰可乐，不过还是得记得喝水。'],
+ ['宠物','翻相册又看到皮卡丘的照片了，小家伙每张表情都不太一样。','今天想早点回去陪皮卡丘待一会儿。','看到路边有人遛狗，忽然想起以前和欧宝相处的日子。'],
+ ['生活','最近在循环一首歌，走路的时候不自觉就跟着节奏点头。','今天的天空颜色很好看，可惜没来得及拍下来。','终于腾出一点时间整理房间，发现了好久没用的东西。'],
+ ['粉丝互动','你们最近都在追什么剧？评论区给我推荐一下。','今天过得怎么样？分享一件让你开心的小事吧。','看到大家的留言啦，谢谢你们一直惦记着我。'],
+ ['轻松日常','有时候下班最大的愿望，就是安安静静吃顿饭。','今天被一个冷笑话逗笑了，反应过来又觉得自己笑点好低。','本来想早点睡，结果看了会儿东西，时间一下就过去了。'],
+ ['工作感想','每次接触新角色，都会发现自己还有很多要学的。','拍摄间隙聊了聊角色，突然对下一场戏有了新想法。','慢慢来，把眼前的事情做好，比着急更重要。'],
+ ['口味','突然想吃鱼香肉丝味的UFO拌面了。','好久没吃麦辣鸡翅，今天想起这个味道。','秋葵做得好吃的时候，真的很下饭。']
+];
+function choose(n){const t=themes[(n*7+Math.floor(n/3))%themes.length];return t[1+((n*11+Math.floor(n/5))%3)];}
+function tick(){
+ try{
+  if(typeof state==='undefined'||!state.v17Weibo||typeof save!=='function')return;
+  const now=Date.now();let last=Number(state.v35LastYanWeiboAt);
+  if(!Number.isFinite(last)||last<=0||last>now+PERIOD){
+    const existing=(state.v17Weibo.posts||[]).filter(p=>p&&p.author==='闫桉'&&Number.isFinite(Number(p.time))).sort((a,b)=>Number(b.time)-Number(a.time));
+    last=existing.length?Math.min(now,Number(existing[0].time)):now;
+    state.v35LastYanWeiboAt=last;save();return;
+  }
+  const elapsed=Math.floor((now-last)/PERIOD);
+  if(elapsed<1)return;
+  const count=Math.min(elapsed,24),start=elapsed-count+1;
+  const posts=[];
+  for(let k=start;k<=elapsed;k++){
+   const at=last+k*PERIOD,slot=Math.floor(at/PERIOD);
+   if((state.v17Weibo.posts||[]).some(p=>p.id==='yan4h-'+slot))continue;
+   posts.push({id:'yan4h-'+slot,author:'闫桉',text:choose(slot),time:at});
+  }
+  state.v17Weibo.posts=[...posts.reverse(),...(state.v17Weibo.posts||[])].slice(0,120);
+  state.v35LastYanWeiboAt=last+elapsed*PERIOD;
+  save();
+  if(posts.length&&typeof wbPage==='function'&&document.getElementById('screen-weibo')?.classList.contains('active')){
+   const tab=state.wbView||'home';if(['home','profile','discover'].includes(tab))wbPage(tab);
+  }
+ }catch(err){console.warn('v35 微博定时更新失败',err)}
+}
+// Browsers cannot run timers while the site is closed. Catch up on reopening, at most 24 posts.
+setTimeout(tick,1200);
+setInterval(tick,60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});
+window.addEventListener('focus',tick);
+})();
+
+</script><script id="v36-works-and-wechat-id">
+(function(){
+'use strict';
+// Only clear the previously hard-coded placeholder. Never overwrite a customized ID.
+if(state.wxProfile && state.wxProfile.id === 'rin975'){
+  state.wxProfile.id='';
+  try{save()}catch(e){console.warn(e)}
+}
+const works={
+  '已播剧':[
+    ['我亲爱的小洁癖','是俊杰'],
+    ['大梦归离','离仑'],
+    ['月鳞绮纪','厉劫、源无获'],
+    ['嫁金钗','陆濯']
+  ],
+  '待播剧':[['烽影燃梅香','华容简']],
+  '参与综艺':[['潮音战纪',''],['青年π计划',''],['一拍即合的我们',''],['灿烂的市集','']]
+};
+window.wxWorks=function(){
+ const sections=Object.entries(works).map(([category,items])=>
+  `<section style="background:white;margin:12px 0;padding:14px 18px;border-radius:12px"><h3 style="margin:0 0 12px">${category}</h3>${items.map(([title,role])=>`<div style="padding:12px 0;border-top:1px solid #eee;line-height:1.5"><strong>《${title}》</strong>${role?`<div style="color:#777;font-size:14px">饰演：${role}</div>`:''}</div>`).join('')}</section>`).join('');
+ mountWx(`<div class="wx-head"><button onclick="wxOpen('me')" style="font-size:24px">‹</button><strong>闫桉 · 作品资料</strong><span></span></div><div style="padding:12px 16px 30px;overflow:auto">${sections}<p style="color:#888;font-size:12px">作品资料按照玩家提供的设定展示。</p></div>`);
+};
+const oldProfile=v18Profile;
+v18Profile=function(channel){
+ const p=oldProfile(channel);
+ const details=Object.entries(works).map(([category,items])=>category+'：'+items.map(([title,role])=>'《'+title+'》'+(role?'饰演'+role:'')).join('、')).join('；');
+ p.partnerBackground=(p.partnerBackground||'')+'\n【作品资料（玩家提供）】'+details;
+ p.partnerPersonality=(p.partnerPersonality||'')+'\n涉及自己的电视剧、角色和综艺时，以作品资料为准，不要随意编造角色名或把待播作品说成已播。';
+ return p;
+};
+})();
 </script></body></html>
