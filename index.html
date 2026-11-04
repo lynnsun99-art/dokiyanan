@@ -1220,4 +1220,46 @@ v18Profile=function(channel){
  return p;
 };
 })();
-</script></body></html>
+</script><script id="v37-independent-backup">
+(function(){
+'use strict';
+const FORMAT='xindong-personal-backup', VERSION=1;
+const mainKey=typeof KEY==='string'?KEY:'iphone_simulator_fresh_v1';
+function msg(s){const e=document.getElementById('v37Status');if(e)e.textContent=s;else alert(s)}
+function copyState(){return JSON.parse(JSON.stringify(state))}
+async function readWalls(){const result={};if(typeof v23WallGet==='function')for(const k of ['home','lock']){try{result[k]=await v23WallGet(k)}catch(e){console.warn('wall backup:',e)}}return result}
+function filename(){const d=new Date(),pad=n=>String(n).padStart(2,'0');return `心动来电_个人存档_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}.json`}
+window.v37Export=async function(){try{
+ const payload={format:FORMAT,version:VERSION,exportedAt:new Date().toISOString(),origin:location.origin,profile:copyState(),wallpapers:await readWalls()};
+ const blob=new Blob([JSON.stringify(payload)],{type:'application/json;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename();document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
+ msg('已生成备份文件。iPhone 请在“文件”App 的下载项目中确认保存成功；建议再复制一份到 iCloud 云盘。');
+ }catch(e){msg('导出失败：'+(e.message||e))}};
+window.v37Import=async function(input){const f=input.files?.[0];if(!f)return;try{
+ if(f.size>25*1024*1024)throw Error('备份文件超过25MB，请检查文件');
+ const payload=JSON.parse(await f.text());
+ if(!payload||payload.format!==FORMAT||payload.version!==VERSION||!payload.profile||typeof payload.profile!=='object'||Array.isArray(payload.profile))throw Error('不是有效的心动来电 v37 个人存档');
+ const p=payload.profile;
+ if(!Array.isArray(p.messages)||!Array.isArray(p.posts)||typeof p.notes!=='string')throw Error('存档缺少必要的基础数据');
+ if(!confirm('确定导入这个个人存档吗？\n\n当前浏览器的聊天记录、头像、微博、设置及壁纸将被替换。\n\n请先导出当前存档备份。'))return;
+ const original=localStorage.getItem(mainKey),oldWalls=await readWalls();
+ try{
+  // Persist state before reload; do not merge separate players' records.
+  localStorage.setItem(mainKey,JSON.stringify(p));
+  if(typeof v23WallSet==='function')for(const k of ['home','lock'])await v23WallSet(k,payload.wallpapers?.[k]||null);
+ }catch(e){
+  try{if(original===null)localStorage.removeItem(mainKey);else localStorage.setItem(mainKey,original);if(typeof v23WallSet==='function')for(const k of ['home','lock'])await v23WallSet(k,oldWalls[k]||null)}catch(rollback){console.error('存档回滚失败',rollback)}
+  throw Error('保存空间不足或写入失败；原存档已尝试恢复：'+e.message);
+ }
+ alert('导入成功！页面将重新载入，显示导入的个人存档。');location.reload();
+ }catch(e){msg('导入失败：'+(e.message||e))}finally{input.value=''}};
+window.v37BackupPanel=function(){return `<section class="card" style="margin:12px 0;padding:16px"><h3 style="margin:0 0 8px">👤 我的独立存档</h3><p class="muted" style="line-height:1.6">每个浏览器单独保存聊天、微信与微博资料、朋友圈、照片及设置。不同手机不会自动同步。导出 JSON 后，可在另一台手机导入恢复；自定义主屏幕和锁屏壁纸也包含在备份中。</p><div style="display:flex;gap:10px;flex-wrap:wrap"><button type="button" class="btn" onclick="v37Export()">⬇ 导出个人存档</button><button type="button" class="btn" onclick="document.getElementById('v37BackupFile').click()">⬆ 导入个人存档</button></div><input id="v37BackupFile" type="file" accept=".json,application/json" style="display:none" onchange="v37Import(this)"><p id="v37Status" style="font-size:12px;color:#666;line-height:1.6;margin-top:10px">导入会覆盖此浏览器当前存档；请先导出备份。备份包含私人聊天和照片，请妥善保管。</p></section>`};
+// Insert into Settings; settings can be reached from the home screen.
+const previous=renderSettings;
+renderSettings=function(){let html=previous();return html.replace('<div class="content">','<div class="content">'+v37BackupPanel())};
+// Also provide a convenient entry from WeChat's Me tab without altering its original controls.
+const priorWx=window.wxOpen;
+if(typeof priorWx==='function')window.wxOpen=function(tab){priorWx(tab);if(tab==='me'){const s=document.getElementById('screen-messages');const target=s?.querySelector('.wx-page');if(target&&!target.querySelector('#v37WxBackup')){const b=document.createElement('div');b.id='v37WxBackup';b.className='wx-group';b.innerHTML='<div class="wx-action" onclick="wxHome();openApp(\'settings\')">📦 个人存档 · 导入／导出 <span class="wx-arrow">›</span></div>';target.appendChild(b)}}};
+})();
+</script>
+</body></html>
